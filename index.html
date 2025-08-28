@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Melk Zedek | Portfólio </title>
+
+</head>
+
+<body>
+
+    <div class="particulas"></div>
+
+    <nav class="navegacao">
+        <ul class="menu">
+            <li>
+                <a href="#inicio" class="menu-link">Inicio</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+            <li>
+                <a href="#projetos" class="menu-link">Projetos</a>
+            </li>
+            <li>
+                <a href="#contatos" class="menu-link">Contato</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="inicio" class="cabecalho">
+
+        <img src="/img/foto_perfil.jpg" alt="foto de perfil" class="foto-perfil">
+        <h1>Melk Zedek</h1>
+        <p class="cabecalho-subtitulo">Desenvolvedor Web</p>
+
+    </main>
+
+    <section class="sobre" id="sobre">
+        <h2 class="sobre-titulo">Sobre Mim</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">
+                Programador Web com experiência em desenvolvimento front-end e back-end. Especializado em criar soluções
+                digitais responsivas e eficientes utilizando HTML5, CSS3, JavaScript e frameworks modernos. Comprometido
+                com a qualidade do código, boas práticas de desenvolvimento e entrega de projetos que superem as
+                expectativas dos clientes.
+            </p>
+        </div>
+    </section>
+
+    <section class="projetos" id="projetos">
+        <h2 class="projetos-titulo">Meus Projetos</h2>
+        <div class="projetos-caixa">
+
+            <div class="projetos-card">
+                <img src="/img/projeto1.png" alt="projeto1" class="projetos-imagem">
+                <div class="projetos-caixa-texto">
+                    <h3 class="info-projetos">Loja de Carros</h3>
+                    <p class="projetos-paragrafo">Loja virtual moderna com foco em animações suaves e design responsivo.
+                        Projeto voltado para vendas e aumentar alcance de mercado.</p>
+                </div>
+            </div>
+            <div class="projetos-card">
+                <img src="/img/projeto2.png" alt="projeto2" class="projetos-imagem">
+                <div class="projetos-caixa-texto">
+                    <h3 class="info-projetos">Lar Geriatrico</h3>
+                    <p class="projetos-paragrafo">Site institucional para um lar exclusivo para idosas, destacando
+                        acolhimento, cuidado e qualidade de vida. Desenvolvido com atenção à clareza e navegação
+                        acessível.</p>
+                </div>
+            </div>
+            <div class="projetos-card">
+                <img src="/img/projeto3.png" alt="projeto1" class="projetos-imagem">
+                <div class="projetos-caixa-texto">
+                    <h3 class="info-projetos">Cafeteria dev</h3>
+                    <p class="projetos-paragrafo">Página de cafeteria pensada para desenvolvedores, unindo design
+                        aconchegante e usabilidade. O objetivo foi trabalhar identidade visual e iniciação de um
+                        négocio.</p>
+                </div>
+            </div>
+            <div class="projetos-card">
+                <a href="https://github.com/melkzed/projeto-pokedev" target="_blank"><img src="/img/projeto4.png"
+                        alt="projeto4" class="projetos-imagem"></a>
+                <div class="projetos-caixa-texto">
+                    <h3 class="info-projetos">Cartas Pokedev</h3>
+                    <p class="projetos-paragrafo">Projeto interativo de cartas de Pokémon(Pokedev), desenvolvido para
+                        praticar HTML, CSS e JavaScript. Foco no aprendizado de manipulação do DOM e criação de
+                        interfaces dinâmicas..</p>
+                </div>
+            </div>
+            <div class="projetos-card">
+                <a href="https://github.com/melkzed/dino_runner" target="_blank"><img src="/img/projeto5.png"
+                        alt="projeto5" class="projetos-imagem"></a>
+                <div class="projetos-caixa-texto">
+                    <h3 class="info-projetos">Dino Runner</h3>
+                    <p class="projetos-paragrafo">Jogo dino runner do google feito com python e implementação de níveis
+                        de dificuldade e de ferramentas.</p>
+                </div>
+            </div>
+            <div class="projetos-card">
+                <a href="https://github.com/brendasenhorinho/colegio-menezes-sistema" target="_blank"><img src="/img/projeto6.png" alt="projeto6" class="projetos-imagem"></a>
+                <div class="projetos-caixa-texto">
+                    <h3 class="info-projetos">Escola Menezes</h3>
+                    <p class="projetos-paragrafo">site feito em conjunto, completo com front-end e back-end, para um
+                        colégio de ensino fundamental e médio</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contatos" id="contatos">
+        <h2 class="contatos-titulo">Entre em Contato</h2>
+        <form class="contatos-formulario" id="formulario" onsubmit="enviarWhats(event)">
+            <div class="grupo-form">
+                <input placeholder="nome" class="campo-form" id="nome">
+            </div>
+            <div class="grupo-form">
+                <textarea placeholder="Digite sua Mensagem" class="campo-form" id="mensagem"></textarea>
+            </div>
+            <button type="submit" class="botao-form">enviar WhatsApp</button>
+        </form>
+    </section>
+
+    <section class="github-link">
+        <p>Confira os projetos no meu <a href="https://github.com/melkzed" target="_blank">GitHub</a>!</p>
+    </section>
+
+    <script>
+        function enviarWhats(event) {
+            event.preventDefault()
+
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '5581994616516'
+
+            const texto = `Olá! Me chamo ${nome}, ${mensagem}`
+            const msgFormatada = encodeURIComponent(texto)
+
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+
+            window.open(url, '_blank')
+        }
+    </script>
+
+</body>
+
+</html>
