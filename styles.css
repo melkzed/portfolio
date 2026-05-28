@@ -124,7 +124,7 @@ h1 {
 
 .projetos-caixa {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 500px), 1fr));
     gap: 2rem;
     max-width: 1600px;
     margin: 0 auto;
@@ -141,6 +141,12 @@ h1 {
     backdrop-filter: blur(10px);
     border: 1px solid var(--vidro);
     overflow: hidden;
+}
+
+.projetos-card a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
 }
 
 .card-video-container {
@@ -172,15 +178,122 @@ h1 {
 
 .card-video-container video {
     display: none;
+    z-index: 1;
 }
 
 .card-video-container:hover video {
     display: block;
 }
 
+.card-overlay-info {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: var(--claro);
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(10, 15, 28, 0.04) 0%, rgba(10, 15, 28, 0.18) 45%, rgba(10, 15, 28, 0.9) 100%);
+}
+
+.card-overlay-info strong {
+    max-width: 90%;
+    font-size: 1.65rem;
+    line-height: 1.05;
+}
+
+.card-overlay-info small {
+    max-width: 95%;
+    color: rgba(226, 232, 240, 0.82);
+    font-size: 0.95rem;
+}
+
+.repo-preview-container {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(79, 70, 229, 0.55));
+}
+
+.repo-preview-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 42px 42px;
+    opacity: 0.45;
+}
+
+.card-repo-preview {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 0.6rem;
+    color: var(--claro);
+    transition: transform 0.4s ease;
+}
+
+.card-repo-preview::after {
+    content: '</>';
+    position: absolute;
+    top: 1.5rem;
+    right: 1.75rem;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.12);
+}
+
+.repo-preview-container:hover .card-repo-preview {
+    transform: scale(1.04);
+}
+
+.repo-tag {
+    width: fit-content;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+.card-repo-preview strong {
+    max-width: 80%;
+    font-size: 2rem;
+    line-height: 1.05;
+}
+
+.card-repo-preview small {
+    max-width: 90%;
+    color: rgba(226, 232, 240, 0.82);
+    font-size: 1rem;
+}
+
+.repo-se-cuida {
+    background: linear-gradient(135deg, rgba(219, 39, 119, 0.85), rgba(20, 184, 166, 0.55));
+}
+
+.repo-erp {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.82), rgba(234, 179, 8, 0.5));
+}
+
+.repo-formulario {
+    background: linear-gradient(135deg, rgba(22, 163, 74, 0.78), rgba(124, 58, 237, 0.58));
+}
+
 
 .projetos-card:hover {
-    box-shadow: 0 10px 20px rgba(79, 70, 299, 0.2);
+    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
     transform: translateY(-10px) scale(1.03);
     transition: all 0.5s ease;
     cursor: pointer;

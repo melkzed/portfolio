@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cards.forEach(card => {
         const video = card.querySelector("video");
+        if (!video) return;
 
         card.addEventListener("mouseover", () => {
             video.style.display = "block";
